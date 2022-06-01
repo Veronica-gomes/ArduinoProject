@@ -20,26 +20,27 @@ void setup()
 
   Serial.begin(9600);
 
-  // Imprimos mensagem inicial no monitor serial
+  // Imprimimos mensagem inicial no monitor serial
 
   Serial.println("Lendo sensor...");
 }
 
 void loop()
 {
-  // Lemos as informacoes do sensor e apresentamos o
-  // resultado no monitor serial da IDE em centímetros (cm)
+  // Lemos as informacoes do sensor e apresentamos os
+  // resultados no monitor serial da IDE em centímetros (cm)
 
   float cmMsec;
   long microsec = ultrasonic.timing();
   cmMsec = ultrasonic.convert(microsec, Ultrasonic::CM);
 
-  // Apresentamos a ditancia em centimetros ses casas decimais.
+  // Apresentamos a ditancia em centimetros em seis casas decimais.
 
   String cmMsecString = String (cmMsec, 0); // nesta linha pegamos a variavel que armazena os valores em argumento ("0") dizemos que queremos
                                             // centimetros e no segundo
-                                            // nenhuma casa decimal (ou seja, numero inteiro apenas). RCosta.)
+                                            // nenhuma casa decimal (ou seja, numero inteiro apenas)
   String cmMsecStringFinal = cmMsecString+"centimetros";
+  
   // As informacoes adquiridas e já calculadas são mostradas no serial motor
   Serial.print("Distancia: ");
   Serial.println(cmMsecStringFinal);
